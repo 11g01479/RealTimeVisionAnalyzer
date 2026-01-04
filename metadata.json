@@ -1,0 +1,9 @@
+{
+  "name": "質問時点でのカメラ画像の解析：音声出力",
+  "description": "An application that analyzes real-time video from the camera and answers questions about it, with voice input support.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "prompt": ""
+}

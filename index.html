@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>リアルタイムビジョンアナライザー</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.10.0"
+  }
+}
+</script>
+</head>
+<body>
+  <main id="app-container">
+    <h1>リアルタイムビジョンアナライザー</h1>
+    <p>カメラを起動し、見えているものについて質問してください。</p>
+    <div id="controls">
+      <button id="camera-button" aria-label="Start Camera">カメラを起動</button>
+      <button id="switch-camera-button" class="hidden" aria-label="Switch Camera">カメラ切替</button>
+    </div>
+    <div id="vision-container" class="hidden">
+      <div id="video-wrapper">
+        <video id="video-feed" autoplay playsinline muted></video>
+      </div>
+      <div id="prompt-section">
+        <textarea id="prompt-input" rows="3" placeholder="例：これは何ですか？マイクボタンで音声入力もできます。" aria-label="Prompt Input"></textarea>
+        <div class="action-buttons">
+          <button id="record-button" aria-label="Record Voice" disabled>音声入力</button>
+          <button id="ask-button" disabled aria-label="Ask AI">質問する</button>
+        </div>
+      </div>
+    </div>
+    <div id="loading-indicator" class="hidden">
+      <div class="spinner"></div>
+    </div>
+    <div id="history-header" class="hidden">
+      <h2 id="history-title">解析履歴</h2>
+      <div class="history-actions">
+        <button id="export-history-button" disabled>履歴をエクスポート</button>
+        <button id="clear-history-button">履歴を消去</button>
+      </div>
+    </div>
+    <div id="history-container"></div>
+  </main>
+  <script type="module" src="index.tsx"></script>
+</body>
+</html>
